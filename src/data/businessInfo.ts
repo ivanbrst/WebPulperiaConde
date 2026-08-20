@@ -8,7 +8,7 @@ export const businessInfo = {
   coverageText: "Galicia y alrededores - Vamos donde estés",
   phone: "625 44 99 20",
   phoneClean: "+34625449920",
-  email: "info@pulperiaconde.es",
+  email: "pulperiaconde@gmail.es",
   schedule: "Lunes a viernes de 9:00 a 14:00 y de 16:00 a 20:00",
   whatsappMessage: "Hola, me gustaría consultar disponibilidad y presupuesto para un evento con Pulpería Conde.",
   
