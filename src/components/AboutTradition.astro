@@ -1,60 +1,79 @@
 ---
 import { Image } from 'astro:assets';
-import cortandoImg from '../assets/pulpeira-cortando-pulpo.webp';
+import { businessInfo } from '../data/businessInfo';
+import puestoImg from '../assets/Pulperia-conde-O-carballino-Ourense-1-1024x751.webp';
 ---
 
-<section class="py-24 sm:py-32 bg-anthracite text-linen-100 border-b border-anthracite-800 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      <!-- Text side -->
-      <div class="lg:col-span-6">
-        <span class="text-xs uppercase tracking-[0.3em] font-bold text-purple-light block mb-4 font-sans">
-          Cinco Décadas de Oficio
-        </span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-8 leading-[1.15]">
-          El respeto por el tiempo, la textura y el corte.
-        </h2>
-        
-        <div class="space-y-6 text-linen-300 font-sans text-base sm:text-lg font-light leading-relaxed">
-          <p>
-            En Pulpería Conde entendemos el pulpo como un patrimonio que requiere paciencia, tacto y técnica. Con más de 50 años de trayectoria continuada en las ferias y fiestas más emblemáticas de Galicia, dominamos el punto de cocción exacto para garantizar la máxima ternura en cada pieza.
-          </p>
-          <p>
-            Servimos cada ración recién elaborada, cortada a tijera sobre plato tradicional de madera y aderezada al instante con sal marina gruesa, aceite de oliva virgen extra y pimentón selecto.
-          </p>
-        </div>
+<section id="nosotros" class="py-24 sm:py-36 bg-anthracite text-white relative overflow-hidden">
 
-        <div class="pt-8 border-t border-anthracite-800 mt-10 flex flex-wrap gap-8">
-          <div>
-            <span class="font-serif text-3xl sm:text-4xl font-bold text-white block">+50</span>
-            <span class="text-xs uppercase tracking-widest text-linen-400 font-sans mt-1 block">Años de experiencia</span>
-          </div>
-          <div class="w-px h-12 bg-anthracite-800"></div>
-          <div>
-            <span class="font-serif text-3xl sm:text-4xl font-bold text-purple-light block">100%</span>
-            <span class="text-xs uppercase tracking-widest text-linen-400 font-sans mt-1 block">Corte en directo</span>
-          </div>
-        </div>
-      </div>
+  <!-- Ambient glow -->
+  <div class="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-brand/10 blur-[140px] pointer-events-none"></div>
 
-      <!-- Image side -->
-      <div class="lg:col-span-6">
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-anthracite-800 bg-anthracite-950">
-          <Image 
-            src={cortandoImg} 
-            alt="Corte tradicional de pulpo a tijera sobre plato de madera" 
-            class="w-full aspect-[4/5] object-cover"
-            width={720}
-            height={900}
+  <div class="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-16 relative z-10">
+
+    <!-- Top eyebrow -->
+    <div class="inline-flex items-center gap-3 mb-12 sm:mb-16">
+      <span class="w-8 h-px bg-purple-brand"></span>
+      <span class="text-[10px] sm:text-xs uppercase tracking-[0.35em] font-bold text-purple-brand font-sans">Nuestra Historia</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+      <!-- Left: Cinematic image with decorative offset frame -->
+      <div class="relative order-2 lg:order-1">
+
+        <!-- Offset decorative border -->
+        <div class="absolute -top-4 -left-4 w-full h-full border border-purple-brand/30 rounded-3xl pointer-events-none"></div>
+
+        <div class="relative rounded-3xl overflow-hidden shadow-floating-dark group">
+          <Image
+            src={puestoImg}
+            alt="Equipo de Pulpería Conde en servicio de evento"
+            class="w-full aspect-[4/3] object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-108"
+            width={720} height={540}
             loading="lazy"
           />
-          <div class="absolute bottom-6 left-6 right-6 bg-anthracite-950/90 backdrop-blur-md p-4 rounded-2xl border border-anthracite-800 text-center">
-            <p class="font-serif italic text-sm text-linen-200">
-              Corte a tijera en directo · Más de 50 años al servicio de tus celebraciones
-            </p>
-          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-anthracite/70 to-transparent"></div>
         </div>
+
+        <!-- Pillar cards below image (remaining 2) -->
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          {(businessInfo.pillars ?? []).slice(2, 4).map(p => (
+            <div class="rounded-2xl bg-white/5 border border-white/10 p-5 hover:border-purple-brand/40 hover:-translate-y-0.5 transition-all duration-300">
+              <span class="font-display text-2xl font-bold text-purple-brand/30 select-none block mb-1">{p.number}</span>
+              <h4 class="font-sans text-sm font-bold text-white mb-1">{p.title}</h4>
+              <p class="font-sans text-xs text-white/50 leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <!-- Right: Story block -->
+      <div class="order-1 lg:order-2 flex flex-col justify-center">
+
+        <h2 class="font-display font-bold uppercase leading-[0.92] text-white mb-8" style="font-size: clamp(2.8rem,6vw,5.5rem)">
+          Más de <em class="not-italic text-purple-brand font-serif font-normal">50 años</em><br />de pasión
+        </h2>
+
+        <p class="font-sans text-base sm:text-lg text-white/60 font-light leading-relaxed mb-6 max-w-lg">
+          {businessInfo.historyQuote}
+        </p>
+
+        <p class="font-sans text-sm sm:text-base text-white/40 font-light leading-relaxed mb-10 max-w-lg">
+          Cuidamos cada detalle: el punto exacto de cocción, el corte a tijera en directo frente a los comensales y el aderezo con aceite de oliva virgen extra, flor de sal y pimentón selecto sobre platos auténticos de madera.
+        </p>
+
+        <!-- Cursive signature -->
+        <div class="pt-8 border-t border-white/10">
+          <p class="font-serif text-2xl sm:text-3xl italic text-purple-brand/80 leading-snug">
+            "Calidad, Tradición y Cercanía"
+          </p>
+          <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-white/30 mt-2 font-semibold">
+            — Familia Pulpería Conde
+          </p>
+        </div>
+
       </div>
 
     </div>
