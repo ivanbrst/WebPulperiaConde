@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BottomBar from '../components/BottomBar.astro';
 import { businessInfo } from '../data/businessInfo';
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 }
 
 const { 
-  title = `${businessInfo.name} — Más de 50 Años de Tradición Pulpeira`, 
+  title = `${businessInfo.name} — ${businessInfo.tagline}`, 
   description = businessInfo.description 
 } = Astro.props;
 
@@ -21,7 +22,7 @@ const schema = {
   "telephone": businessInfo.phoneClean,
   "email": businessInfo.email,
   "servesCuisine": "Gallega Tradicional",
-  "areaServed": "Galicia, España"
+  "areaServed": "Galicia y alrededores"
 };
 ---
 
@@ -34,10 +35,10 @@ const schema = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
-    <!-- Editorial Typography: Cinzel + Space Grotesk -->
+    <!-- Google Fonts: Cinzel, Cormorant Garamond, Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- OpenGraph SEO -->
     <meta property="og:title" content={title} />
@@ -48,18 +49,39 @@ const schema = {
 		<title>{title}</title>
     
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <style is:global>
+      /* Luxury Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 7px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #141619;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #C89D4B;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #D4AF37;
+      }
+    </style>
 	</head>
-	<body class="bg-linen text-anthracite font-sans antialiased overflow-x-hidden selection:bg-purple-brand selection:text-white">
+	<body class="bg-slate-dark text-white font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-slate-dark">
     
-    <!-- Top Header Navigation -->
+    <!-- Dark Luxury Header -->
     <Header />
 
-    <!-- Main Content -->
-    <main class="pt-28 sm:pt-36">
+    <!-- Main Page Content -->
+    <main>
 		  <slot />
     </main>
 
-    <!-- Monumental Footer -->
+    <!-- Dark Luxury Footer -->
     <Footer />
+
+    <!-- Fixed Mobile Contact Bar -->
+    <BottomBar />
+
 	</body>
 </html>

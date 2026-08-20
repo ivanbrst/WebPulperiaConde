@@ -1,20 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import TraditionPillars from '../components/TraditionPillars.astro';
 import Services from '../components/Services.astro';
 import AboutTradition from '../components/AboutTradition.astro';
 import Gallery from '../components/Gallery.astro';
-import ContactForm from '../components/ContactForm.astro';
-import BottomBar from '../components/BottomBar.astro';
 ---
 
 <BaseLayout>
+  <!-- 1. Hero Section (Fondo oscuro con separador curvo) -->
   <Hero />
-  <TraditionPillars />
+
+  <!-- 2. Sección de Servicios (Fondo crema marfil #FBF8F2 con marca de agua y 5 servicios) -->
   <Services />
+
+  <!-- 3. Sección "Sobre Nosotros" (Bloque oscuro #1E2024 con sello circular dorado) -->
   <AboutTradition />
+
+  <!-- 4. Galería "Nuestros Momentos" (Fondo crema marfil con tira de 5 fotos) -->
   <Gallery />
-  <ContactForm />
-  <BottomBar />
 </BaseLayout>

@@ -2,28 +2,49 @@
 import { businessInfo } from '../data/businessInfo';
 ---
 
-<section id="oficio" class="py-20 bg-linen border-b border-linen-300">
+<section id="oficio" class="py-24 sm:py-32 bg-linen border-b border-linen-300 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
     
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-linen-300">
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16 sm:mb-24 reveal">
+      <span class="text-xs uppercase tracking-[0.35em] font-bold text-purple-brand block mb-4 font-sans">
+        Principios del Oficio
+      </span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-anthracite tracking-tight leading-tight">
+        Medio siglo dominando el tiempo, la textura y el corte.
+      </h2>
+    </div>
+
+    <!-- 4 Tactile Editorial Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {businessInfo.pillars.map((pillar, index) => (
-        <div class={`flex flex-col justify-between ${index !== 0 ? 'pt-8 md:pt-0 md:pl-8' : ''}`}>
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-serif italic text-2xl font-bold text-purple-brand">
-                {pillar.number}
-              </span>
-              <span class="w-2 h-2 rounded-full bg-purple-brand"></span>
+        <div class={`bg-white rounded-3xl p-8 sm:p-10 border border-linen-300 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-purple-brand/40 hover:shadow-luxury transition-all duration-500 reveal reveal-delay-${(index % 3) + 1}`}>
+          
+          <!-- Large watermark numeral in background -->
+          <span class="absolute -right-2 -top-6 font-serif text-8xl font-black text-linen-200 pointer-events-none select-none transition-colors group-hover:text-purple-soft">
+            {pillar.number}
+          </span>
+
+          <div class="relative z-10">
+            <div class="w-8 h-8 rounded-full bg-purple-soft flex items-center justify-center text-purple-brand font-bold text-xs mb-8">
+              {pillar.number}
             </div>
             
-            <h3 class="font-serif text-xl font-bold text-anthracite mb-2">
+            <h3 class="font-serif text-2xl font-bold text-anthracite mb-4 group-hover:text-purple-brand transition-colors">
               {pillar.title}
             </h3>
             
-            <p class="font-sans text-xs sm:text-sm text-anthracite-600 font-normal leading-relaxed">
+            <p class="font-sans text-sm text-anthracite-600 font-light leading-relaxed">
               {pillar.desc}
             </p>
           </div>
+
+          <div class="relative z-10 pt-8 mt-6 border-t border-linen-200">
+            <span class="text-[10px] uppercase tracking-widest text-anthracite-400 font-bold">
+              Garantía Pulpería Conde
+            </span>
+          </div>
+
         </div>
       ))}
     </div>
