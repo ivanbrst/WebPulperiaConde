@@ -1,0 +1,65 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { businessInfo } from '../data/businessInfo';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+  title = `${businessInfo.name} — Más de 50 Años de Tradición Pulpeira`, 
+  description = businessInfo.description 
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": businessInfo.name,
+  "description": description,
+  "telephone": businessInfo.phoneClean,
+  "email": businessInfo.email,
+  "servesCuisine": "Gallega Tradicional",
+  "areaServed": "Galicia, España"
+};
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+    <!-- Editorial Typography: Cinzel + Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- OpenGraph SEO -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+
+		<title>{title}</title>
+    
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+	</head>
+	<body class="bg-linen text-anthracite font-sans antialiased overflow-x-hidden selection:bg-purple-brand selection:text-white">
+    
+    <!-- Top Header Navigation -->
+    <Header />
+
+    <!-- Main Content -->
+    <main class="pt-28 sm:pt-36">
+		  <slot />
+    </main>
+
+    <!-- Monumental Footer -->
+    <Footer />
+	</body>
+</html>

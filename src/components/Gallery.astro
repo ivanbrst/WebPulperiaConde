@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+
+import img1 from '../assets/Pulperia-Conde-O-Carballino-Ourense-2.webp';
+import img2 from '../assets/pulperia-Carballino-1024x1024.webp';
+import img3 from '../assets/pulpeira-cortando-pulpo.webp';
+import img4 from '../assets/Pulperia-conde-O-carballino-Ourense-1-1024x751.webp';
+import img5 from '../assets/Pulperia-conde-O-carballino-Ourense-6.webp';
+
+const photos = [
+  { src: img3, title: "Corte tradicional en directo", span: "md:col-span-8 aspect-[16/10]" },
+  { src: img1, title: "Puesto en fiesta popular", span: "md:col-span-4 aspect-[4/3] md:aspect-auto" },
+  { src: img4, title: "Servicio en banquete", span: "md:col-span-4 aspect-[4/3]" },
+  { src: img2, title: "Puesto tradicional", span: "md:col-span-4 aspect-[4/3]" },
+  { src: img5, title: "Calderos al punto", span: "md:col-span-4 aspect-[4/3]" },
+];
+---
+
+<section id="galeria" class="py-24 sm:py-32 bg-linen border-b border-linen-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <span class="text-xs uppercase tracking-[0.3em] font-bold text-purple-brand block mb-3">
+          Documento Visual
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-anthracite tracking-tight">
+          Nuestros Puestos y Momentos
+        </h2>
+      </div>
+      <p class="font-sans text-sm text-anthracite-600 max-w-xs font-normal">
+        Fotografías reales de montajes en pazos, ferias y eventos privados.
+      </p>
+    </div>
+
+    <!-- Asymmetric Editorial Photo Gallery -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+      {photos.map((item) => (
+        <div class={`rounded-3xl overflow-hidden shadow-sm border border-linen-300 bg-anthracite relative group ${item.span}`}>
+          <Image 
+            src={item.src} 
+            alt={item.title} 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            width={900}
+            height={600}
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-anthracite-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <span class="font-serif text-white font-semibold text-base sm:text-lg">
+              {item.title}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

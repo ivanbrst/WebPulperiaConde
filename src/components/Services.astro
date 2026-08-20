@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import { businessInfo } from '../data/businessInfo';
+
+import bodaImg from '../assets/Pulperia-conde-O-carballino-Ourense-1-1024x751.webp';
+import feriaImg from '../assets/Pulperia-Conde-O-Carballino-Ourense-2.webp';
+import empresaImg from '../assets/Pulperia-conde-O-carballino-Ourense-6.webp';
+---
+
+<section id="servicios" class="py-24 sm:py-32 bg-linen border-b border-linen-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase tracking-[0.3em] font-bold text-purple-brand block mb-3 font-sans">
+          Nuestros Servicios
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-anthracite tracking-tight leading-tight">
+          Puesta en Escena para Eventos
+        </h2>
+      </div>
+      <p class="font-sans text-sm sm:text-base text-anthracite-600 max-w-sm font-normal">
+        Más de medio siglo atendiendo ferias multitudinarias y celebraciones privadas con la misma maestría.
+      </p>
+    </div>
+
+    <!-- Asymmetric Bento Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+      
+      <!-- Bento Item 1: Bodas (Span: 8 cols) -->
+      <div class="md:col-span-8 bg-white rounded-3xl overflow-hidden border border-linen-300 shadow-sm flex flex-col justify-between group">
+        <div class="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden bg-anthracite">
+          <Image 
+            src={bodaImg} 
+            alt="Puesto de pulpería para bodas y banquetes" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            width={900}
+            height={450}
+            loading="lazy"
+          />
+          <span class="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-anthracite font-bold text-xs uppercase tracking-widest font-sans shadow-sm">
+            Bodas & Banquetes
+          </span>
+        </div>
+        <div class="p-8 sm:p-10">
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-anthracite mb-4">
+            El cóctel más celebrado en bodas gallegas
+          </h3>
+          <p class="font-sans text-base text-anthracite-600 font-normal leading-relaxed mb-6">
+            Instalamos nuestro puesto durante el aperitivo. El corte en directo a tijera y la degustación al momento sobre platos de madera convierte la recepción en un espectáculo gastronómico inolvidable para los invitados.
+          </p>
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-wider text-anthracite-500 font-semibold border-t border-linen-300 pt-4 font-sans">
+            <span>· Fincas, pazos y jardines</span>
+            <span>· Servicio ágil sin colas</span>
+            <span>· Presentación tradicional</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Item 2: Manifesto Card (4 cols) -->
+      <div class="md:col-span-4 bg-anthracite text-linen-100 rounded-3xl p-8 sm:p-10 border border-anthracite-800 flex flex-col justify-between shadow-sm">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] font-bold text-purple-light block mb-6 font-sans">
+            50 Años de Oficio
+          </span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug mb-6 text-white">
+            "Medio siglo manteniendo intacta la receta de las mejores fiestas."
+          </h3>
+          <p class="text-linen-300 font-sans text-sm leading-relaxed font-light mb-8">
+            El pulpo se elabora y se corta al momento frente a los comensales. Sin precocinados ni intermediarios.
+          </p>
+        </div>
+        <a 
+          href="#contacto" 
+          class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-purple-light hover:text-white transition-colors font-sans"
+        >
+          Consultar fechas disponibles ↗
+        </a>
+      </div>
+
+      <!-- Bento Item 3: Ferias y Romerías (5 cols) -->
+      <div class="md:col-span-5 bg-white rounded-3xl overflow-hidden border border-linen-300 shadow-sm flex flex-col justify-between group">
+        <div class="relative aspect-[4/3] overflow-hidden bg-anthracite">
+          <Image 
+            src={feriaImg} 
+            alt="Puesto de pulpería en feria tradicional gallega" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            width={600}
+            height={450}
+            loading="lazy"
+          />
+          <span class="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-anthracite font-bold text-xs uppercase tracking-widest font-sans shadow-sm">
+            Ferias & Romerías
+          </span>
+        </div>
+        <div class="p-8">
+          <h3 class="font-serif text-2xl font-bold text-anthracite mb-3">
+            La fiesta tradicional de toda la vida
+          </h3>
+          <p class="font-sans text-sm text-anthracite-600 leading-relaxed font-normal">
+            Infraestructura propia con carpas y capacidad para atender grandes festividades patronales con rapidez y el sabor genuino de siempre.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bento Item 4: Eventos Privados y Empresa (7 cols) -->
+      <div class="md:col-span-7 bg-white rounded-3xl overflow-hidden border border-linen-300 shadow-sm flex flex-col sm:flex-row group">
+        <div class="sm:w-1/2 relative aspect-square sm:aspect-auto overflow-hidden bg-anthracite">
+          <Image 
+            src={empresaImg} 
+            alt="Servicio de pulpo para eventos de empresa y privados" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            width={500}
+            height={500}
+            loading="lazy"
+          />
+        </div>
+        <div class="sm:w-1/2 p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-widest font-semibold text-purple-brand font-sans block mb-2">
+              Empresas & Particulares
+            </span>
+            <h3 class="font-serif text-2xl font-bold text-anthracite mb-4">
+              Jornadas gastronómicas a medida
+            </h3>
+            <p class="font-sans text-sm text-anthracite-600 font-normal leading-relaxed mb-6">
+              Inauguraciones, comidas populares, magostos o reuniones familiares. Montaje autónomo, limpio y puntual en cualquier espacio.
+            </p>
+          </div>
+          <a 
+            href="#contacto" 
+            class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-purple-brand hover:text-purple-dark transition-colors font-sans"
+          >
+            Solicitar presupuesto a medida →
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
